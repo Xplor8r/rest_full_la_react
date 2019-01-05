@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,8 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# rest_full_la_react
+An LA restaurant picker app with rails back end and react front end
+>>>>>>> b2422027fe419fbb57b7600f48ef96f4dc81cb79
+# rest_full_la
