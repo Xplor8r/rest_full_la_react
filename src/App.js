@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  state = {getData: true, restaurantData: []}
+  constructor() {
+    super()
+    this.state = {getData: true, restaurantData: []}
+  }
   render() {
     const{ getData } = this.state;
     return (
