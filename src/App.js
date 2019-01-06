@@ -3,23 +3,18 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  state = {getData: true, restaurantData: []}
   render() {
+    const{ getData } = this.state;
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <h2>RestFULL LA!</h2>
         </header>
+          <p>
+            {getData ? <p>get data</p> : <p>don't get data</p> }
+          </p>
+
       </div>
     );
   }
