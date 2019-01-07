@@ -3,6 +3,7 @@ import  { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './App.css';
 import { getRestraurantData } from './actions/restaurants'
+import { Button } from 'reactstrap';
 
 class App extends Component {
   state = {fetchData: true, restaurantData: []}
