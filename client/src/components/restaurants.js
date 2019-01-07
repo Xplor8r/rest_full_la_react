@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Restaurants extends Component {
+class Restaurants extends React.Component {
     render() {
         return (
             <div>Restaurants</div>
