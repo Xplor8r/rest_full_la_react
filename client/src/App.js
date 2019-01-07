@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import  { BrowserRouter as Router, Route } from 'react-router-dom'
+import  { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './App.css';
 import Welcome from './components/welcome'
-import Filters from './components/filters'
+import Pick from './components/pick'
 import Restaurants from './components/restaurants'
 // import { getRestraurantData } from './actions/restaurants'
-// import { Button } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 const NotFound = () => <div>Not Found</div>
 
@@ -26,14 +26,16 @@ class App extends Component {
     return (
       <Router>
          <div className="App">
-          <Route exact path="/" component={Welcome}/>
-          <Route exact path="/filters" component={Filters}/>
+          
+          <Route exact path="/pick" component={Pick}/>
           <Route exact path="/restaurants" component={Restaurants}/>
           <Route component={NotFound} />
           <div className="App-header">
             <h1>RestFull LA!</h1>
-
-            {fetchData ? <p>fetchData</p> : <Welcome />}
+            <h4>the app that helps the restless and empty in LA to rest and be full in LA!</h4>
+            <h5>Are you in LA?</h5>
+            <Link to="/welcome"><Button>Yes</Button></Link>
+            <Route exact path="/welcome" component={Welcome}/>
             </div>
           </div>
       </Router>
