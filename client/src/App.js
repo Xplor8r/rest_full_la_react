@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import  { BrowserRouter as Router, Route } from 'react-router-dom'
+// import  { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './App.css';
-import { getRestraurantData } from './actions/restaurants'
-import { Button } from 'reactstrap';
+// import { getRestraurantData } from './actions/restaurants'
+// import { Button } from 'reactstrap';
 
 class App extends Component {
   state = {fetchData: true, restaurantData: []}
   componentDidMount() {
-      return fetch(`RailsApi/restaurants`)
-      .then(response => response.json())
-      .then(response => { console.log(response)})
+    return fetch(`RailsApi/restaurants`)
+    .then(response => response.json())
+    .then(restaurants => {
+        console.log(restaurants)
+    })
   }
   render() {
     const {fetchData} = this.state;
