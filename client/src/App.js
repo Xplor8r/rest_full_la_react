@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Button as SUIButton } from 'semantic-ui-react'
 import './App.css';
+import { getRestraurantData } from './actions/restaurants'
 
 class App extends Component {
   state = {fetchData: true, restaurantData: []}
+  componentDidMount() {
+      return fetch(`RailsApi/restaurants`)
+      .then(response => response.json())
+      .then(response => { console.log(response)})
+  }
   render() {
     const {fetchData} = this.state;
     return (
@@ -21,4 +26,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);
