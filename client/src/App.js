@@ -5,16 +5,17 @@ import { Button as SUIButton } from 'semantic-ui-react'
 import './App.css';
 
 class App extends Component {
+  state = {fetchData: true, restaurantData: []}
   render() {
-    console.log(this)
+    const {fetchData} = this.state;
     return (
-      <div className="App">
-        <header className="App-header">
-        <h1>RestFull LA!</h1>
-          <p>
-          </p>
 
-        </header>
+      <div className="App">
+        <div className="App-header">
+        <h1>RestFull LA!</h1>
+
+        {fetchData ? <p>fetchData</p> : <p>not fetchData</p>}
+        </div>
       </div>
     );
   }
