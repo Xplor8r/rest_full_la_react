@@ -7,9 +7,9 @@ import Pick from './components/pick'
 import Restaurants from './components/restaurants'
 import { fetchRestaurantData } from './actions/restaurants'
 import { Button } from 'reactstrap';
-// import Hungry from './components/hungry'
+import Hungry from './components/hungry'
+import NoRestaurantFound from './components/noRestaurant'
 
-const NotFound = () => <div>Not Found</div>
 
 class App extends Component {
   state = {fetchData: false, restaurantData: []}
@@ -21,10 +21,10 @@ class App extends Component {
     return (
       <Router>
          <div className="App">
-          
+          <Route exact path="/hungry" component={Hungry}/>
           <Route exact path="/pick" component={Pick}/>
           <Route exact path="/restaurants" component={Restaurants}/>
-          <Route component={NotFound} />
+          <Route exact path="/noRestaurant" component={NoRestaurantFound} />
           <div className="App-header">
             <h1>RestFull LA!</h1>
             <h4>the app that helps the restless and empty in LA to rest and be full in LA!</h4>
