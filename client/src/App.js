@@ -5,24 +5,19 @@ import './App.css';
 import Welcome from './components/welcome'
 import Pick from './components/pick'
 import Restaurants from './components/restaurants'
-// import { getRestraurantData } from './actions/restaurants'
+import { fetchRestaurantData } from './actions/restaurants'
 import { Button } from 'reactstrap';
+// import Hungry from './components/hungry'
 
 const NotFound = () => <div>Not Found</div>
 
 class App extends Component {
-  state = {fetchData: true, restaurantData: []}
+  state = {fetchData: false, restaurantData: []}
+
   componentDidMount() {
-    return fetch(`RailsApi/restaurants`)
-    .then(response => response.json())
-    .then(restaurantData => this.setState({
-      fetchData: false,
-      restaurantData }))
+    this.props.fetchRestaurantData();
   }
   render() {
-    const {fetchData, restaurantData } = this.state;
-    console.log(fetchData)
-    console.log(restaurantData)
     return (
       <Router>
          <div className="App">
@@ -34,7 +29,7 @@ class App extends Component {
             <h1>RestFull LA!</h1>
             <h4>the app that helps the restless and empty in LA to rest and be full in LA!</h4>
             <h5>Are you in LA?</h5>
-            <Link to="/welcome"><Button>Yes</Button></Link>
+            <Link to="/hungry"><Button>Yes</Button></Link>
             <Route exact path="/welcome" component={Welcome}/>
             </div>
           </div>
@@ -43,4 +38,12 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+
+const mapStateToProps = (state) => {
+  return {state}
+}
+const mapDispatchToProps = (dispatch) => {
+  return {fetchRestaurantData: () => dispatch(fetchRestaurantData())}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
