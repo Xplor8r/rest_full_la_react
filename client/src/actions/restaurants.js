@@ -4,7 +4,7 @@ export const fetchRestaurantData = () => {
         .then(response => response.json())
         .then(restaurantData => {
             dispatch(getRestaurantData(restaurantData))
-            console.log(restaurantData[0]["name"])
+            console.log(restaurantData)
         })
     }    
 }

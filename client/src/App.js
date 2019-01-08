@@ -8,7 +8,7 @@ import Restaurants from './components/restaurants'
 import { fetchRestaurantData } from './actions/restaurants'
 // import { Button } from 'reactstrap';
 import Hungry from './components/hungry'
-import Welcome from './components/welcome'
+// import Welcome from './components/welcome'
 import NoRestaurantFound from './components/noRestaurant'
 
 
