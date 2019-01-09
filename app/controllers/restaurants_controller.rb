@@ -8,8 +8,8 @@ class RestaurantsController < ApplicationController
         req.params['client_id'] = ENV['client_id']
         req.params['client_secret'] = ENV['client_secret']
         req.params['v'] = '20160201'
-        req.params['near'] = 90020
-        req.params['query'] = 'restaurants'
+        req.params['near'] = 90017
+        req.params['query'] = 'restaurant'
       end
       body = JSON.parse(response.body)
       restaurants = body["response"]["venues"]
