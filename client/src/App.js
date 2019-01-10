@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import './App.css';
 // import WelcomeContainer from './containers/welcomeContainer'
 import Pick from './components/pick'
-import Restaurants from './components/restaurants'
+import Restaurants from './containers/restaurants'
 import { fetchRestaurantData } from './actions/restaurants'
 // import { Button } from 'reactstrap';
 import Hungry from './components/hungry'
@@ -13,7 +13,7 @@ import NoRestaurantFound from './components/noRestaurant'
 
 
 class App extends Component {
-  state = {fetchData: false, restaurantData: []}
+  state = {fetchData: true, restaurants: []}
 
   componentDidMount() {
     this.props.fetchRestaurantData();
@@ -46,7 +46,9 @@ class App extends Component {
 
 
 const mapStateToProps = (state) => {
-  return {state}
+  return {
+    restaurants: state.restaurants
+  }
 }
 const mapDispatchToProps = (dispatch) => {
   return {fetchRestaurantData: () => dispatch(fetchRestaurantData())}

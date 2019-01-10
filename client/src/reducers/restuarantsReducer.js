@@ -1,7 +1,7 @@
-const restaurantsReducer = (state = {}, action) => {
+const restaurantsReducer = (state = {restaurants: []}, action) => {
     switch (action.type) {
         case "GET_RESTAURANT_DATA":
-            return action.restaurantData;
+            return Object.assign({}, state, {restaurants: action.restaurantData});
         default:
             return state
     }
