@@ -1,4 +1,4 @@
-const datafetch = (state = true, action) => {
+const dataFetch = (state = true, action) => {
     switch (action.type) {
       case 'END_DATA_FETCH':
         return false
@@ -9,4 +9,4 @@ const datafetch = (state = true, action) => {
     }
   }
   
-  export default datafetch
+  export default dataFetch

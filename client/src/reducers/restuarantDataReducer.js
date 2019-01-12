@@ -1,4 +1,4 @@
-const restaurantsReducer = (state = [], action) => {
+const restaurantData = (state = [], action) => {
     switch (action.type) {
         case "GET_RESTAURANT_DATA":
             return action.restaurantData;
@@ -6,4 +6,4 @@ const restaurantsReducer = (state = [], action) => {
             return state
     }
 }
-export default restaurantsReducer
+export default restaurantData

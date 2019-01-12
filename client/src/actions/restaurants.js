@@ -1,5 +1,5 @@
 import { endDataFetch } from './dataFetch'
-import { pick } from './pick'
+import { getPick } from './pick'
 
 export const fetchRestaurantData = () => {
     return dispatch => {
@@ -8,7 +8,7 @@ export const fetchRestaurantData = () => {
         .then(restaurantData => {
             dispatch(getRestaurantData(restaurantData))
             dispatch(endDataFetch())
-            dispatch(pick(restaurantData[Math.floor(Math.random()*restaurantData.length)]))
+            dispatch(getPick(restaurantData[Math.floor(Math.random()*restaurantData.length)]))
         })
     }    
 }

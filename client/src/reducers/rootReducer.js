@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
 
-import restaurantsReducer from './restuarantsReducer'
+import restaurantData from './restuarantDataReducer'
 
 
 const rootReducer = combineReducers({
-  restaurantsReducer,
+  restaurantData,
 
 })
 
