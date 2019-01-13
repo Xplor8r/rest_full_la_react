@@ -1,10 +1,10 @@
 const pick = (state = {restaurant: {}}, action) => {
     switch (action.type) {
-      case 'SET_pick':
+      case 'GET_PICK':
         return {restaurant: action.restaurant}
       default:
         return state
     }
   }
   
-  export default pick
+export default pick

@@ -1,13 +1,20 @@
 import React from 'react';
 
+
 const Restaurant = ({restaurant}) => {
+    // console.log(restaurant.location.lat)
+    // console.log(restaurant)
         return (
+            
             <div key={restaurant.id}>
                 <div>
                     <h5>{restaurant.name}</h5>
-                    <p>{restaurant.location.address}</p>
-                    <p>{restaurant.categories.first.name}</p>
-                    {restaurant.delivery? <p>Delivery: yes</p>: <p>Delivery: no</p>}
+                    <p>Address:{restaurant.location.address}</p>
+                    <p>Cuisine: {restaurant.categories.map(cat => cat.shortName)}</p>
+                    {restaurant.delivery?
+                    <p>Delivery: yes<br/>
+                    <a href={restaurant.delivery.url} target="_blank">Order Now</a></p>:
+                    <p>Delivery: no</p>}
                 </div>
             </div>
         )

@@ -1,15 +1,32 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import  { Link } from 'react-router-dom'
+import Restaurant from '../components/restaurant';
+// import { getPick } from '../actions/pick';
+import { connect } from 'react-redux'
 
-class Pick extends React.Component {
+export class Pick extends React.Component {
+
+    // handleNewRecommendation() {
+    //     let restaurant = this.props.restaurantData[Math.floor(Math.random()*this.props.restaurantData.length)]
+    //     this.props.dispatch(getPick(restaurant))
+    // }
     render() {
+        const restaurant = this.props.pick.restaurant
         return (
             <div>
-                <h5>Pick</h5>
+                <Restaurant key={restaurant.id} restaurant={restaurant} />
                 <Link to="/"><Button>Home</Button></Link>
             </div>
         )
     }
 }
-export default Pick
+const mapStateToProps = (state) => {
+    return {
+      restaurantData: state.restaurantData,
+      pick: state.pick
+    }
+  }
+  
+  
+  export default Pick = connect(mapStateToProps)(Pick)
