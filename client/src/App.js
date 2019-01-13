@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
 import './App.css';
-// import WelcomeContainer from './containers/welcomeContainer'
-import { Pick } from './components/pick'
+import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import { fetchRestaurantData } from './actions/restaurants'
 import { endDataFetch } from './actions/dataFetch'
@@ -31,7 +30,7 @@ class App extends Component {
                     <Switch>
                       <Route exact path="/" component={Welcome}/>
                       <Route exact path="/hungry" component={Hungry}/>
-                      <Route exact path="/pick" component={Pick}/>
+                      <Route exact path="/pick" component={PickContainer}/>
                       <Route exact path="/restaurants" component={RestaurantsContainer}/>
                       <Route exact path="/noRestaurant" component={NoRestaurantFound} />
                     </Switch>}
