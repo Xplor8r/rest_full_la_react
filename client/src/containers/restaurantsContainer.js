@@ -14,10 +14,8 @@ export class RestaurantsContainer extends Component {
             <div>
                 <h3>List of LA Restaurants</h3>
                 <h4>Filter</h4>
-
+                <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
                 <Restaurants restaurants={restaurants} />
-
-                <Link to="/"><Button>Home</Button></Link>
             </div>
         )
     }
