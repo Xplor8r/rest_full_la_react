@@ -2,8 +2,6 @@ import React from 'react';
 
 
 const Restaurant = ({restaurant}) => {
-    // console.log(restaurant.location.lat)
-    // console.log(restaurant)
         return (
             
             <div key={restaurant.id}>

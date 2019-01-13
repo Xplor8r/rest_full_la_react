@@ -1,34 +1,42 @@
-export class Map extends React.Component {
-    loadMap() {
-        if (this.props && this.props.google) {
-            // google is available
-            const {google} = this.props;
-            const maps = google.maps;
-    
-            const mapRef = this.refs.map;
-            const node = ReactDOM.findDOMNode(mapRef);
-    
-            let {initialCenter, zoom} = this.props;
-            const {lat, lng} = initialCenter;
-            const center = new maps.LatLng(lat, lng);
-            const mapConfig = Object.assign({}, {
-            center: center,
-            zoom: zoom
-            })
-            this.map = new maps.Map(node, mapConfig);
-        }    
-        Map.propTypes = {
-            google: React.PropTypes.object,
-            zoom: React.PropTypes.number,
-            initialCenter: React.PropTypes.object
+import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
+export class Map extends Component {
+    componentDidMount() {
+        const {google} = this.props;
+        const maps = google.maps;
+        const mapRef = this.refs.map
+        const initialCenter = {
+            lat: this.props.restaurant.location.lat,
+            lng: this.props.restaurant.location.lng
         }
-        Map.defaultProps = {
-            zoom: 13,
-            // San Francisco, by default
-            initialCenter: {
-                lat: 37.774929,
-                lng: -122.419416
-            }
-        }
+        const map = new maps.Map(mapRef, {
+          center: initialCenter,
+          zoom: 14
+        })
+        new maps.Marker({
+          map: map,
+          position: location
+        })
+        window.scrollTo(0,document.body.scrollHeight)
+    }
+    
+     render() {   
+        return (
+            <div ref='map' className="google-map" style={style}>
+            Loading Map...
+            </div>
+        )
     }
 }
+
+Map.defaultProps = {
+    zoom: 14,
+    // Downtown LA default
+    initialCenter: {
+        lat: 34.0544,
+        lng: -118.2673
+    }
+}
+
+export const Map = connect(mapStateToProps)(Map)
