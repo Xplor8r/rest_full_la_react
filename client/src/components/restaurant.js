@@ -13,7 +13,7 @@ const Restaurant = ({restaurant}) => {
                     <p>Cuisine: {restaurant.categories.map(cat => cat.shortName)}</p>
                     {restaurant.delivery?
                     <p>Delivery: yes<br/>
-                    <a href={restaurant.delivery.url} target="_blank">Order Now</a></p>:
+                    <a href={restaurant.delivery.url} rel="noopener noreferrer" target="_blank">Order Now</a></p>:
                     <p>Delivery: no</p>}
                 </div>
             </div>
