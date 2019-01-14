@@ -1,5 +1,5 @@
 import React from 'react';
-
+import ModalMap from './modal'
 
 const Restaurant = ({restaurant}) => {
         return (
@@ -14,6 +14,7 @@ const Restaurant = ({restaurant}) => {
                     <a href={restaurant.delivery.url} rel="noopener noreferrer" target="_blank">Order Now</a></p>:
                     <p>Delivery: no</p>}
                 </div>
+                <ModalMap restaurant={restaurant}/>
             </div>
         )
 
