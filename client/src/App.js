@@ -9,7 +9,7 @@ import { endDataFetch } from './actions/dataFetch'
 // import { Button } from 'reactstrap';
 import Hungry from './components/hungry'
 import Welcome from './components/welcome'
-import NoRestaurantFound from './components/noRestaurant'
+import GoodBye from './components/goodbye'
 
 
 class App extends Component {
@@ -32,7 +32,7 @@ class App extends Component {
                       <Route exact path="/hungry" component={Hungry}/>
                       <Route exact path="/pick" component={PickContainer}/>
                       <Route exact path="/restaurants" component={RestaurantsContainer}/>
-                      <Route exact path="/noRestaurant" component={NoRestaurantFound} />
+                      <Route exact path="/goodbye" component={GoodBye} />
                     </Switch>}
                 </div>
               </div>

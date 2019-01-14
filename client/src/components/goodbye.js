@@ -6,7 +6,9 @@ class NoRestaurantFound extends React.Component {
     render() {
         return (
             <div>
-                <h5>No Restaurant Found</h5>
+                <h5>Goodbye</h5>
+                <p>Try searching for a restaurant at <a href="https://foursquare.com/" >Foursquare</a></p>
+
                 <Link to="/"><Button>Home</Button></Link>
             </div>
         )

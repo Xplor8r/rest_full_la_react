@@ -6,7 +6,7 @@ const Welcome = () => {
     return (
         <div>
             <h5>Are you in LA?</h5>
-            <Link to="/hungry"><Button>Yes</Button></Link>
+            <Link to="/hungry"><Button>Yes</Button></Link>  <Link to="/goodbye"><Button>No</Button></Link>
         </div>
     )
 }
