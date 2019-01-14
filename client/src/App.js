@@ -10,7 +10,8 @@ import { endDataFetch } from './actions/dataFetch'
 import Hungry from './components/hungry'
 import Welcome from './components/welcome'
 import GoodBye from './components/goodbye'
-
+import ModalMap from './components/modal'
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   componentDidMount() {
@@ -28,6 +29,7 @@ class App extends Component {
                   {dataFetch ?
                     <h4>loading...</h4>:
                     <Switch>
+                      <Route exact path="/modal" component={ModalMap}/>
                       <Route exact path="/" component={Welcome}/>
                       <Route exact path="/hungry" component={Hungry}/>
                       <Route exact path="/pick" component={PickContainer}/>
