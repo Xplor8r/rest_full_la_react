@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Row, Col, Button } from 'reactstrap';
 import  { Link } from 'react-router-dom'
 import Restaurant from '../components/restaurant';
 import { getPick } from '../actions/pick';
@@ -16,10 +16,12 @@ class PickContainer extends Component {
     render() {
         const restaurant = this.props.pick.restaurant
         return (
-            <div>
+            <Row>
                 <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/"><Button>Home</Button></Link>
-                <Restaurant key={restaurant.id} restaurant={restaurant} />
-           </div>
+                <Row className="col-sm-4">
+                    <Restaurant key={restaurant.id} restaurant={restaurant} />
+                </Row>
+            </Row>
         )
     }
 }

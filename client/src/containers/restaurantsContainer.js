@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import { Button, Row, Col } from 'reactstrap';
 import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
@@ -11,12 +11,14 @@ export class RestaurantsContainer extends Component {
              return restaurant
         })
         return (
-            <div>
-                <h3>List of LA Restaurants</h3>
-                <h4>Filter</h4>
-                <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
-                <Restaurants restaurants={restaurants} />
-            </div>
+            <Row>
+                <Col className="text-center">
+                    <h3>List of LA Restaurants</h3>
+                    <h4>Filter</h4>              
+                    <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
+                </Col>
+                <Restaurants restaurants={restaurants} />               
+            </Row>
         )
     }
 }
