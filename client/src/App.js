@@ -30,7 +30,9 @@ class App extends Component {
           </Row>
           <Row>
             {dataFetch ?
-              <h4>loading...</h4>:
+              <Col className="text-center">
+                <h4>loading...</h4>
+              </Col>:
               <Switch>
                 <Route exact path="/" component={Welcome}/>
                 <Route exact path="/hungry" component={Hungry}/>

@@ -16,12 +16,12 @@ class PickContainer extends Component {
     render() {
         const restaurant = this.props.pick.restaurant
         return (
-            <Row>
+            <Col className="text-center">
                 <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/"><Button>Home</Button></Link>
-                <Row className="col-sm-4">
+                <Row className="center">
                     <Restaurant key={restaurant.id} restaurant={restaurant} />
                 </Row>
-            </Row>
+            </Col>
         )
     }
 }
