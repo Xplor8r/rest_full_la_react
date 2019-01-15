@@ -28,7 +28,7 @@ class ModalMap extends React.Component {
                 <iframe title="map" width="100%" height="450" src={"https://www.google.com/maps/embed/v1/search?q=" +
                   this.props.restaurant.location.lat + "%2C" +
                   this.props.restaurant.location.lng +
-                  "&key=AIzaSyDCdMcPlWPWzlJP2Nd9hwlM1aH6vr_48r4"}>
+                  `&key=${process.env.googleApiKey}`}>
                 </iframe>
             </div>
             </ModalBody>
