@@ -11,16 +11,18 @@ export class RestaurantsContainer extends Component {
              return restaurant
         })
         return (
-
-                <Col className="text-center">
-                    <h3>List of LA Restaurants</h3>
-                    <h4>Filter</h4>              
-                    <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
-                    <Row><Restaurants restaurants={restaurants} /></Row>                          
-                </Col>
+            <Col className="text-center">
+                <h3>List of LA Restaurants</h3>
+                <h4>Filter</h4>              
+                <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
+                <Row className="h-250px">         
+                    <Restaurants restaurants={restaurants} />              
+                </Row>                          
+            </Col>
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         restaurantData: state.restaurantData,

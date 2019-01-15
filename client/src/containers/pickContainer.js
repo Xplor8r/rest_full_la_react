@@ -18,8 +18,10 @@ class PickContainer extends Component {
         return (
             <Col className="text-center">
                 <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/"><Button>Home</Button></Link>
-                <Row className="center">
-                    <Restaurant key={restaurant.id} restaurant={restaurant} />
+                <Row>
+                    <Col sm="12" md={{ size: 6, offset: 3 }} >
+                        <Restaurant key={restaurant.id} restaurant={restaurant} />
+                    </Col>
                 </Row>
             </Col>
         )
