@@ -10,9 +10,10 @@ export const removeDeliveryFilter = () => {
     }
 }
 
-export const addCategoryFilter = () => {
+export const addCategoryFilter = (category) => {
     return {
-        type: 'ADD_CATEGORY_FILTER'
+        type: 'ADD_CATEGORY_FILTER',
+        category
     }
 }
   
