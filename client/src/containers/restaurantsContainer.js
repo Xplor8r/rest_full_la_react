@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import { Button, Row, Col } from 'reactstrap';
+import { Button, Col } from 'reactstrap';
 import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
 import { Filter } from '../components/filterForm';
 
 const getRestaurants = (restaurants, filter) => {
-    let categories = restaurants.map((restaurant) => restaurant.categories.map(cat => cat.name))
-
-    //has delivery
+   //has delivery
     if (filter.categoryFilter.length === 0 && filter.deliveryFilter === true) {
         return restaurants.filter((restaurant) => restaurant.delivery === true);
     //has delivery and matches category
@@ -18,9 +16,10 @@ const getRestaurants = (restaurants, filter) => {
         return filteredByCategoryRestaurants.filter((restaurant) => restaurant.delivery === true);
     //matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === false) {
-        console.log(categories)
         return restaurants.filter((restaurant) => restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter[0]);
-    } else { return restaurants}
+    } else if (filter.categoryFilter.length === 0 && filter.deliveryFilter === false) {
+        return restaurants;
+    } else { return restaurants }
 }
    
 export class RestaurantsContainer extends Component {

@@ -17,7 +17,7 @@ class FilterForm extends Component {
 
     resetCategory(e) {
         let category = e.currentTarget.textContent
-        this.setState({dropDownValue: 'Select action'});
+        this.setState({dropDownValue: 'Select Category'});
         this.props.dispatch(removeCategoryFilter(category));
     }
 
@@ -29,13 +29,9 @@ class FilterForm extends Component {
 
     handleCategoryFilter(e) {
         this.setState({dropDownValue: e.currentTarget.textContent});
-
         let category = e.currentTarget.value
-        if (e.currentTarget) {
-            this.props.dispatch(addCategoryFilter(category));
-        } else {
-            this.props.dispatch(removeCategoryFilter(category));
-        }
+        this.props.dispatch(removeCategoryFilter(category));
+        this.props.dispatch(addCategoryFilter(category));
     }
 
     handleDeliveryFilter(e) {

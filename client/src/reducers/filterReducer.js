@@ -4,8 +4,7 @@ const filter = (state = {categoryFilter: [], deliveryFilter: false}, action) => 
         return Object.assign({}, state, { categoryFilter: [...state.categoryFilter, action.category], deliveryFilter: state.deliveryFilter})
         // return {...state, categoryFilter: [...state.categoryFilter, action.category], deliveryFilter: state.deliveryFilter}
       case 'REMOVE_CATEGORY_FILTER':
-        const newCategoryFilter = state.categoryFilter.filter((cat) => cat !== action.category)
-        return { categoryFilter: newCategoryFilter, deliveryFilter: state.deliveryFilter}
+        return { categoryFilter: [], deliveryFilter: state.deliveryFilter}
 
       case 'ADD_DELIVERY_FILTER':
         return { categoryFilter: [...state.categoryFilter], deliveryFilter: true}
