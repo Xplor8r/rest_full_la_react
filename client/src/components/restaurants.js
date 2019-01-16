@@ -5,7 +5,7 @@ const Restaurants = ({ restaurants }) => {
   return (
     <div>
       {restaurants.map((restaurant) => (
-        <CardGroup className="col-md-4 float-right" style={{height: '500px'}}>
+        <CardGroup key={restaurant.id} className="col-md-4 float-right" style={{height: '500px'}}>
           <Restaurant key={restaurant.id} restaurant={restaurant} />
         </CardGroup>
       ))}
