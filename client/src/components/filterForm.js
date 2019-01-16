@@ -29,9 +29,9 @@ class FilterForm extends Component {
 
     handleCategoryFilter(e) {
         this.setState({dropDownValue: e.currentTarget.textContent});
-        console.log(e.target === e.currentTarget)
-        let category = e.currentTarget.textContent
-        if (e.target === e.currentTarget) {
+
+        let category = e.currentTarget.value
+        if (e.currentTarget) {
             this.props.dispatch(addCategoryFilter(category));
         } else {
             this.props.dispatch(removeCategoryFilter(category));
@@ -51,7 +51,7 @@ class FilterForm extends Component {
         let categories = this.props.restaurantData.map((restaurant) => {return restaurant.categories.map(cat => cat.name)[0]})
         let uniqueCategories = [...new Set(categories)]
         let dropDownItems = uniqueCategories.map((category) => {
-            return <DropdownItem value="" key={category} onClick={(e) => this.handleCategoryFilter(e)}>{category}</DropdownItem>
+            return <DropdownItem value={category} key={category} onClick={(e) => this.handleCategoryFilter(e)}>{category}</DropdownItem>
         })
 
         return (

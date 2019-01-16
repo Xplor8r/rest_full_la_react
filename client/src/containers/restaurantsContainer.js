@@ -31,9 +31,7 @@ export class RestaurantsContainer extends Component {
                 <h3>List of LA Restaurants</h3>
                 <Filter />            
                 <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
-                <Row className="h-250px">         
-                    <Restaurants restaurants={restaurants} />              
-                </Row>                          
+                <Restaurants restaurants={restaurants} />                                     
             </Col>
         )
     }
