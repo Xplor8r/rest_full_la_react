@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Spinner, Container, Row, Col, Badge } from 'reactstrap';
+import { Progress, Container, Row, Col, Badge } from 'reactstrap';
 import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import { fetchRestaurantData } from './actions/restaurants'
@@ -31,7 +31,7 @@ class App extends Component {
             <Row>
               {dataFetch ?
                 <Col className="text-center">
-                  <Spinner color="primary" />
+                  <h5>Loading: <Progress value={2 * 5} /></h5>
                 </Col>:
                 <Switch>
                   <Route exact path="/" component={Welcome}/>

@@ -1,13 +1,13 @@
 import React from 'react';
 import Restaurant from '../components/restaurant';
-import { Col } from 'reactstrap';
+import { CardGroup } from 'reactstrap';
 const Restaurants = ({ restaurants }) => {
   return (
     <div>
       {restaurants.map((restaurant) => (
-        <Col className="col-md-3 float-right" >
+        <CardGroup className="col-md-4 float-right" style={{height: '500px'}}>
           <Restaurant key={restaurant.id} restaurant={restaurant} />
-        </Col>
+        </CardGroup>
       ))}
     </div>
   )
