@@ -1,4 +1,4 @@
-const Filter = (state = {categoryFilter: [], deliveryFilter: false}, action) => {
+const filter = (state = {categoryFilter: [], deliveryFilter: false}, action) => {
     switch (action.type) {
       case 'ADD_CATEGORY_FILTER':
         return Object.assign({}, state, { categoryFilter: [...state.categoryFilter, action.category], deliveryFilter: state.deliveryFilter})
@@ -18,4 +18,4 @@ const Filter = (state = {categoryFilter: [], deliveryFilter: false}, action) => 
     }
   }
   
-  export default Filter
+  export default filter

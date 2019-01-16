@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItemButton, Form, FormGroup, Label, Input, FormText  } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, ButtonGroup, Button } from 'reactstrap';
 import { addCategoryFilter, removeCategoryFilter, addDeliveryFilter, removeDeliveryFilter } from '../actions/filters';
 import { connect } from 'react-redux';
 
@@ -9,61 +9,48 @@ class FilterForm extends Component {
 
         this.state = {
             dropdownOpen: false,
-            cSelected: [],
-            rSelected: 'All'
+            cSelected: []
         };           
         this.toggle = this.toggle.bind(this);
-        this.onRadioBtnClick = this.onRadioBtnClick.bind(this);
     }
 
-    onRadioBtnClick(rSelected) {
-        this.setState({ rSelected });
-    }
-    
     toggle() {
         this.setState(prevState => ({
             dropdownOpen: !prevState.dropdownOpen
         }));
     }
 
-      handleCategoryFilter(e) {
+    handleCategoryFilter(e) {
         let category = e.target.value
         if (e.target.checked) {
-          this.props.dispatch(addCategoryFilter(category));
+            this.props.dispatch(addCategoryFilter(category));
         } else {
-          this.props.dispatch(removeCategoryFilter(category));
+            this.props.dispatch(removeCategoryFilter(category));
         }
-      }
+    }
 
-      handleDeliveryFilter(e) {
+    handleDeliveryFilter(e) {
         if (e.target.value) {
-          this.props.dispatch(addTakeoutFilter());
+             this.props.dispatch(addDeliveryFilter());
         } else {
-          this.props.dispatch(removeTakeoutFilter());
+            this.props.dispatch(removeDeliveryFilter());
         }
-      }
+    }
 
       render() {
+        let dropDownItems = this.props.restaurantData.map((restaurant) => {
+            return <DropdownItem onClick={(e) => this.handleCategoryFilter(e)}>{restaurant.categories.map(cat => cat.name)[0]}</DropdownItem>
+       })
         return (
             <div className="bg-info clearfix" style={{ padding: '.5rem' }}>
-                <div className="float-left">
-                    <ButtonGroup>
-                        <Button color="primary" onClick={() => this.onRadioBtnClick(1)} active={this.state.rSelected === 'Has Delivery'}>Has Delivery</Button>
+                    <ButtonGroup className="float-left">
+                        <Button color="primary" onClick={(e) => this.handleDeliveryFilter(e)}>Has Delivery</Button>
                     </ButtonGroup>
-                    <p>{this.state.rSelected}</p>
-                </div>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="float-right">
-                    <DropdownToggle caret>
-                    Category
-                    </DropdownToggle>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary" className="float-right">
+                    <DropdownToggle caret>Category</DropdownToggle>
                     <DropdownMenu>
-                    <DropdownItem header>Pick a Category</DropdownItem>
-                    <DropdownItem>Some Action</DropdownItem>
-                    <DropdownItem disabled>Action (disabled)</DropdownItem>
-                    <DropdownItem divider />
-                    <DropdownItem>Foo Action</DropdownItem>
-                    <DropdownItem>Bar Action</DropdownItem>
-                    <DropdownItem>Quo Action</DropdownItem>
+                        <DropdownItem header>Pick a Category</DropdownItem>
+                        {dropDownItems}
                     </DropdownMenu>
                 </Dropdown>
             </div>
@@ -72,9 +59,10 @@ class FilterForm extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-      restaurantFilters: state.restaurantFilters,
+        restaurantData: state.restaurantData,
+        restaurantFilters: state.restaurantFilters,
     }
-  }
+}
 
 export default connect(mapStateToProps)(FilterForm)
 
