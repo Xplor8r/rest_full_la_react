@@ -3,15 +3,22 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, ButtonGroup, Butt
 import { addCategoryFilter, removeCategoryFilter, addDeliveryFilter, removeDeliveryFilter } from '../actions/filters';
 import { connect } from 'react-redux';
 
+
 class FilterForm extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            dropdownOpen: false,
-            cSelected: []
-        };           
         this.toggle = this.toggle.bind(this);
+        this.state = {
+            dropDownValue: 'Select Category',
+            dropdownOpen: false
+        };
+    }
+
+    resetCategory(e) {
+        let category = e.currentTarget.textContent
+        this.setState({dropDownValue: 'Select action'});
+        this.props.dispatch(removeCategoryFilter(category));
     }
 
     toggle() {
@@ -21,8 +28,10 @@ class FilterForm extends Component {
     }
 
     handleCategoryFilter(e) {
-        let category = e.target.value
-        if (e.target.checked) {
+        this.setState({dropDownValue: e.currentTarget.textContent});
+        console.log(e.target === e.currentTarget)
+        let category = e.currentTarget.textContent
+        if (e.target === e.currentTarget) {
             this.props.dispatch(addCategoryFilter(category));
         } else {
             this.props.dispatch(removeCategoryFilter(category));
@@ -30,27 +39,32 @@ class FilterForm extends Component {
     }
 
     handleDeliveryFilter(e) {
-        if (e.target.value) {
+        console.log(e.target)
+        if (e.target.checked) {
              this.props.dispatch(addDeliveryFilter());
         } else {
             this.props.dispatch(removeDeliveryFilter());
         }
     }
 
-      render() {
-        let dropDownItems = this.props.restaurantData.map((restaurant) => {
-            return <DropdownItem onClick={(e) => this.handleCategoryFilter(e)}>{restaurant.categories.map(cat => cat.name)[0]}</DropdownItem>
-       })
+    render() {
+        let categories = this.props.restaurantData.map((restaurant) => {return restaurant.categories.map(cat => cat.name)[0]})
+        let uniqueCategories = [...new Set(categories)]
+        let dropDownItems = uniqueCategories.map((category) => {
+            return <DropdownItem value="" key={category} onClick={(e) => this.handleCategoryFilter(e)}>{category}</DropdownItem>
+        })
+
         return (
             <div className="bg-info clearfix" style={{ padding: '.5rem' }}>
                     <ButtonGroup className="float-left">
                         <Button color="primary" onClick={(e) => this.handleDeliveryFilter(e)}>Has Delivery</Button>
                     </ButtonGroup>
                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary" className="float-right">
-                    <DropdownToggle caret>Category</DropdownToggle>
+                    <DropdownToggle caret>{this.state.dropDownValue}</DropdownToggle>
                     <DropdownMenu>
                         <DropdownItem header>Pick a Category</DropdownItem>
-                        {dropDownItems}
+                        <DropdownItem onClick={(e) => this.resetCategory(e)}>All</DropdownItem>
+                        {dropDownItems}                   
                     </DropdownMenu>
                 </Dropdown>
             </div>
@@ -64,5 +78,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(FilterForm)
+export const Filter = connect(mapStateToProps)(FilterForm)
 
