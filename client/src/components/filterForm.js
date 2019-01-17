@@ -34,13 +34,8 @@ class FilterForm extends Component {
         this.props.dispatch(addCategoryFilter(category));
     }
 
-    handleDeliveryFilter(e) {
-        console.log(e.target.checked)
-        if (e.target.checked) {
-             this.props.dispatch(addDeliveryFilter());
-        } else {
-            this.props.dispatch(removeDeliveryFilter());
-        }
+    handleDeliveryFilter() {
+        this.props.dispatch(addDeliveryFilter());
     }
 
     render() {
@@ -57,7 +52,7 @@ class FilterForm extends Component {
                     </ButtonGroup>
                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary" className="float-right">
                     <DropdownToggle caret>{this.state.dropDownValue}</DropdownToggle>
-                    <DropdownMenu>
+                    <DropdownMenu right>
                         <DropdownItem header>Pick a Category</DropdownItem>
                         <DropdownItem onClick={(e) => this.resetCategory(e)}>All</DropdownItem>
                         {dropDownItems}                   
