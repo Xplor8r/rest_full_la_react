@@ -20,11 +20,11 @@ class ModalMap extends React.Component {
   render() {
     return (
       <div>
-          <Button onClick={this.toggle}>View Map</Button>
+          <Button color="primary" onClick={this.toggle}>View Map</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
             <ModalBody>
             <div className="">
-                <h5>{this.props.restaurant.name}<a className="float-right" onClick={this.toggle}>X</a></h5>
+                <h5>{this.props.restaurant.name}<Button className="float-right" color="link" size="sm" onClick={this.toggle}>X</Button></h5>
                 <iframe title="map" width="100%" height="450"
                   src={"https://www.google.com/maps/embed/v1/search?q=" +
                     this.props.restaurant.location.lat + "%2C" +
