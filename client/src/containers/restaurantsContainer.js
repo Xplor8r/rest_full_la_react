@@ -4,16 +4,19 @@ import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
 import { Filter } from '../components/filterForm';
+import NoDelivery from '../components/noDelivery';
 
 const getRestaurants = (restaurants, filter) => {
    //has delivery
     if (filter.categoryFilter.length === 0 && filter.deliveryFilter === true) {
-        return restaurants.filter((restaurant) => restaurant.delivery === true);
+        return restaurants.filter((restaurant) => restaurant.delivery);
     //has delivery and matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === true) {
-        let filteredByCategoryRestaurants = restaurants.filter((restaurant) =>
-        restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter);
-        return filteredByCategoryRestaurants.filter((restaurant) => restaurant.delivery === true);
+        let filteredByCategoryRestaurants = restaurants.filter((restaurant) => restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter[0]);
+        // restaurants.filter((restaurant) =>
+        // restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter);
+        console.log(filteredByCategoryRestaurants)
+        return filteredByCategoryRestaurants.filter((restaurant) => restaurant.delivery);
     //matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === false) {
         return restaurants.filter((restaurant) => restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter[0]);
@@ -31,7 +34,9 @@ export class RestaurantsContainer extends Component {
                 <div className="clearfix" style={{ padding: '1rem' }}>
                     <Filter />  <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
                 </div>
-                <Restaurants restaurants={restaurants} />                                     
+                {restaurants.length === 0? 
+                    <NoDelivery />:
+                    <Restaurants restaurants={restaurants} />}                                           
             </Col>
         )
     }

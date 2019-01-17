@@ -7,8 +7,8 @@ const GoodBye = () => {
     return (
         <Col className="text-center">
             <Media top width="50%" src={restaurant} alt="Card image cap" /><br/>
+            <p>Try searching for a restaurant at <a href="https://foursquare.com/" >Foursquare</a></p>
             <Link to="/hungry"><Button>Please Come Back!</Button></Link>
-            <p>Or try searching for a restaurant at <a href="https://foursquare.com/" >Foursquare</a></p>
         </Col>
 
     )

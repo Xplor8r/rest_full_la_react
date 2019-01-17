@@ -5,7 +5,11 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background: url(./images/restaurant.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   min-height: 100vh;
   color: white;
 }
