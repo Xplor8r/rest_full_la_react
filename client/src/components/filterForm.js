@@ -46,6 +46,10 @@ class FilterForm extends Component {
         }
         this.setState({ cSelected: [...this.state.cSelected] });
     }
+    componentWillUnmount(category) {
+        this.props.dispatch(removeCategoryFilter(category));
+        this.props.dispatch(removeDeliveryFilter());
+    }
 
     render() {
         let categories = this.props.restaurantData.map((restaurant) => {return restaurant.categories.map(cat => cat.name)[0]})
