@@ -11,7 +11,8 @@ class FilterForm extends Component {
         this.toggle = this.toggle.bind(this);
         this.state = {
             dropDownValue: 'Select Category',
-            dropdownOpen: false
+            dropdownOpen: false,
+            cSelected: []
         };
     }
 
@@ -34,8 +35,16 @@ class FilterForm extends Component {
         this.props.dispatch(addCategoryFilter(category));
     }
 
-    handleDeliveryFilter() {
-        this.props.dispatch(addDeliveryFilter());
+    onCheckboxBtnClick(selected) {
+        const index = this.state.cSelected.indexOf(selected);
+        if (index < 0) {
+          this.state.cSelected.push(selected);
+          this.props.dispatch(addDeliveryFilter());
+        } else {
+          this.state.cSelected.splice(index, 1);
+          this.props.dispatch(removeDeliveryFilter());
+        }
+        this.setState({ cSelected: [...this.state.cSelected] });
     }
 
     render() {
@@ -47,9 +56,9 @@ class FilterForm extends Component {
 
         return (
             <div>
-                    <ButtonGroup className="float-left">
-                        <Button onClick={(e) => this.handleDeliveryFilter(e)}>Has Delivery</Button>
-                    </ButtonGroup>
+                <ButtonGroup className="float-left">
+                    <Button onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Has Delivery</Button>
+                </ButtonGroup>
                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary" className="float-right">
                     <DropdownToggle caret>{this.state.dropDownValue}</DropdownToggle>
                     <DropdownMenu right>
