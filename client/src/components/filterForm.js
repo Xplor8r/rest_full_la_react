@@ -49,7 +49,7 @@ class FilterForm extends Component {
 
     render() {
         let categories = this.props.restaurantData.map((restaurant) => {return restaurant.categories.map(cat => cat.name)[0]})
-        let uniqueCategories = [...new Set(categories)]
+        let uniqueCategories = [...new Set(categories.sort())]
         let dropDownItems = uniqueCategories.map((category) => {
             return <DropdownItem value={category} key={category} onClick={(e) => this.handleCategoryFilter(e)}>{category}</DropdownItem>
         })
