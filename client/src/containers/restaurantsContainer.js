@@ -26,10 +26,11 @@ export class RestaurantsContainer extends Component {
     render() {
         let restaurants = getRestaurants(this.props.restaurantData, this.props.filter)
         return (
-            <Col className="text-center">
+            <Col className="text-center" >
                 <h3>List of LA Restaurants</h3>
-                <Filter />            
-                <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
+                <div className="clearfix" style={{ padding: '1rem' }}>
+                    <Filter />  <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/"><Button>Home</Button></Link>
+                </div>
                 <Restaurants restaurants={restaurants} />                                     
             </Col>
         )

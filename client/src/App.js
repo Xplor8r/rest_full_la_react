@@ -26,7 +26,7 @@ class App extends Component {
             <Row>
                 <Col className="text-center">
                   <h1><Badge color="secondary" pill>RestFull LA!</Badge></h1>
-                  <h3>The app that helps the restless and empty in LA to rest and be full in LA!</h3>
+                  <p>The app that helps the restless and empty in LA to rest and be full in LA!</p>
                 </Col>
             </Row>
             <Row className=" App-info">

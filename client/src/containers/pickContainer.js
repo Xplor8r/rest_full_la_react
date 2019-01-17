@@ -17,7 +17,9 @@ class PickContainer extends Component {
         const restaurant = this.props.pick.restaurant
         return (
             <Col className="text-center">
-                <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/"><Button>Home</Button></Link>
+                <div className="clearfix" style={{ padding: '1rem' }}>
+                    <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/"><Button>Home</Button></Link>
+                </div>
                 <Row>
                     <Col sm="12" md={{ size: 6, offset: 3 }} >
                         <Restaurant key={restaurant.id} restaurant={restaurant} />

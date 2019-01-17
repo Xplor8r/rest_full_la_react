@@ -35,7 +35,7 @@ class FilterForm extends Component {
     }
 
     handleDeliveryFilter(e) {
-        console.log(e.target)
+        console.log(e.target.checked)
         if (e.target.checked) {
              this.props.dispatch(addDeliveryFilter());
         } else {
@@ -51,9 +51,9 @@ class FilterForm extends Component {
         })
 
         return (
-            <div className="bg-info clearfix" style={{ padding: '.5rem' }}>
+            <div>
                     <ButtonGroup className="float-left">
-                        <Button color="primary" onClick={(e) => this.handleDeliveryFilter(e)}>Has Delivery</Button>
+                        <Button onClick={(e) => this.handleDeliveryFilter(e)}>Has Delivery</Button>
                     </ButtonGroup>
                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary" className="float-right">
                     <DropdownToggle caret>{this.state.dropDownValue}</DropdownToggle>
