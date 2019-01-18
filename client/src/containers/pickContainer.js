@@ -18,7 +18,7 @@ class PickContainer extends Component {
         return (
             <Col className="text-center">
                 <div className="clearfix" style={{ padding: '1rem' }}>
-                    <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/"><Button>Home</Button></Link>
+                    <Button onClick={() => this.handleNewPick()}>Gimme Another Pick!</Button> <Link to="/restaurants"><Button>View a List of Restaunts</Button></Link> <Link to="/hungry"><Button>Back</Button></Link>
                 </div>
                 <Row>
                     <Col sm="12" md={{ size: 6, offset: 3 }} >

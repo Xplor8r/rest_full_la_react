@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Container, Row, Col, Badge } from 'reactstrap';
+import { Media } from 'reactstrap';
 import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import { fetchRestaurantData } from './actions/restaurants'
@@ -11,29 +11,26 @@ import Welcome from './components/welcome'
 import GoodBye from './components/goodbye'
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import logo from './images/spinning_plate.jpg'
+import header from './images/RestFullLA.jpg'
 
 class App extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchRestaurantData();
   }
   render() {
     const { dataFetch } = this.props
     return (
+      <Router>
       <div className="App">
-        <Router>
-          <Container className="App-header col-sm-12">
-            <Row>
-                <Col className="text-center">
-                  <h1><Badge color="secondary" pill>RestFull LA!</Badge></h1>
-                  <p>The app that helps the restless and empty in LA to rest and be full in LA!</p>
-                </Col>
-            </Row>
-            <Row className=" App-info">
+          <div className="App-header">
+                <Media style={{height: 200, align: 'center'}} src={header} alt="rest full L A" />
+                  {/* <h1><Badge color="secondary" pill>RestFull LA!</Badge></h1>
+                  <p>The app that helps the restless and empty in LA to rest and be full in LA!</p> */}
+          </div>
+            <div className=" App-info">
               {dataFetch ?
-                <Col className="text-center">
-                  <h5>Loading...</h5>
-                </Col>:
+                  <Media src={logo} className="App-logo" alt="logo" />:
                 <Switch>
                   <Route exact path="/" component={Welcome}/>
                   <Route exact path="/hungry" component={Hungry}/>
@@ -41,10 +38,10 @@ class App extends Component {
                   <Route exact path="/restaurants" component={RestaurantsContainer}/>
                   <Route exact path="/goodbye" component={GoodBye} />
                 </Switch>}
-            </Row>
-          </Container>
-        </Router>
+            </div>
+            <footer className="footer">&copy; 2019 RestFull LA. All Rights Reserved.</footer>
       </div>
+      </Router>
     );
   }
 }
