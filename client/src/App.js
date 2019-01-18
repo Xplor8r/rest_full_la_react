@@ -11,7 +11,7 @@ import Welcome from './components/welcome'
 import GoodBye from './components/goodbye'
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
-import logo from './images/spinning_plate.jpg'
+import logo from './images/spinning_plate.png'
 import header from './images/RestFullLA.jpg'
 
 class App extends Component {
@@ -25,8 +25,7 @@ class App extends Component {
       <div className="App">
           <div className="App-header">
                 <Media style={{height: 200, align: 'center'}} src={header} alt="rest full L A" />
-                  {/* <h1><Badge color="secondary" pill>RestFull LA!</Badge></h1>
-                  <p>The app that helps the restless and empty in LA to rest and be full in LA!</p> */}
+                <p>The app that helps the restless and empty in LA to rest and be full in LA!</p>
           </div>
             <div className=" App-info">
               {dataFetch ?
@@ -39,8 +38,7 @@ class App extends Component {
                   <Route exact path="/goodbye" component={GoodBye} />
                 </Switch>}
             </div>
-            <footer className="footer">&copy; 2019 RestFull LA. All Rights Reserved.</footer>
-      </div>
+     </div>
       </Router>
     );
   }
