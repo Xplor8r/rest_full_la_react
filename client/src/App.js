@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Media } from 'reactstrap';
+import { Media, Row, Col } from 'reactstrap';
 import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import { fetchRestaurantData } from './actions/restaurants'
@@ -22,14 +22,16 @@ class App extends Component {
     const { dataFetch } = this.props
     return (
       <Router>
-      <div className="App">
+        <div className="App">
           <div className="App-header">
-                <Media style={{height: 200, align: 'center'}} src={header} alt="rest full L A" />
-                <p>The app that helps the restless and empty in LA to rest and be full in LA!</p>
+                <Media style={{height: 200}} src={header} alt="rest full L A" />
+                <h3 className="title">The app that helps the restless and empty in LA to rest and be full in LA!</h3>
           </div>
             <div className=" App-info">
               {dataFetch ?
-                  <Media src={logo} className="App-logo" alt="logo" />:
+                <Row>
+                  <Col><Media src={logo} className="App-logo" alt="logo" /></Col>
+                </Row>:
                 <Switch>
                   <Route exact path="/" component={Welcome}/>
                   <Route exact path="/hungry" component={Hungry}/>

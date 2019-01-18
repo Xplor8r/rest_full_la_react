@@ -31,7 +31,9 @@ export class RestaurantsContainer extends Component {
         return (
             <Col className="text-center" >
                 <div className="clearfix" style={{ padding: '1rem' }}>
-                    <Filter />  <Link to="/pick"><Button>Get a Random Pick</Button></Link>  <Link to="/hungry"><Button>Back</Button></Link>
+                    <Filter />
+                    <Link to="/pick"><Button>Get a Random Pick</Button></Link>
+                    <Link to="/hungry"><Button>Back</Button></Link>
                 </div>
                 {restaurants.length === 0? 
                     <NoDelivery />:

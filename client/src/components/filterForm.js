@@ -60,10 +60,9 @@ class FilterForm extends Component {
 
         return (
             <div>
-                <ButtonGroup className="float-left">
-                    <Button onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Has Delivery</Button>
-                </ButtonGroup>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary" className="float-right">
+                <Button onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Has Delivery</Button>
+
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} color="primary">
                     <DropdownToggle caret>{this.state.dropDownValue}</DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem header>Pick a Category</DropdownItem>
