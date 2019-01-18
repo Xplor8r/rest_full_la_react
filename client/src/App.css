@@ -9,8 +9,12 @@
   min-height: 100vh;
 }
 .App-logo {
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%); 
+
   animation: App-logo-spin infinite 20s linear;
   height: 30vmin;
 }
@@ -25,11 +29,8 @@
 }
 
 .App-info {
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%); 
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
