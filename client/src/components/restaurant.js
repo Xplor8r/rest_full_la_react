@@ -54,7 +54,7 @@ function getImage() {
 }
 
     return (
-        <Card className="text-center" style={{backgroundColor: 'grey'}} key={restaurant.id}>
+        <Card style={{backgroundColor: 'grey'}} key={restaurant.id}>
             <CardImg top width="50%" src={getImage()} alt="Card image cap" />
             <CardBody>
                 <CardTitle><h4>{restaurant.name.split('|')[0]}</h4></CardTitle>
@@ -68,7 +68,6 @@ function getImage() {
                 <ModalMap restaurant={restaurant}/>
             </CardBody><br/>
         </Card>
-
     )
 }
 

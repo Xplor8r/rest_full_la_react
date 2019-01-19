@@ -5,7 +5,7 @@ import  { Link } from 'react-router-dom'
 
 const GoodBye = () => {
     return (
-        <Col className="text-center">
+        <Col>
             <p>Try searching for a restaurant at <a href="https://foursquare.com/" >Foursquare</a></p>
             <Link to="/hungry"><Button>Please Come Back!</Button></Link>
         </Col>
