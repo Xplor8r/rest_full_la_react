@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Col } from 'reactstrap';
+import { Button, Col, Container, Row } from 'reactstrap';
 import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
@@ -29,16 +29,18 @@ export class RestaurantsContainer extends Component {
     render() {
         let restaurants = getRestaurants(this.props.restaurantData, this.props.filter)
         return (
-            <Col className="text-center" >
-                <div className="clearfix" style={{ padding: '1rem' }}>
-                    <Filter />
-                    <Link to="/pick"><Button>Get a Random Pick</Button></Link>
-                    <Link to="/hungry"><Button>Back</Button></Link>
-                </div>
+            <Container>
+                <Row>
+                    <Col className="clearfix" style={{padding: '1rem'}}>
+                        <Filter />
+                        <Link to="/pick"><Button size="lg" color="danger">Get a Random Pick</Button></Link>{' '}
+                        <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
+                    </Col>
+                </Row> 
                 {restaurants.length === 0? 
                     <NoDelivery />:
-                    <Restaurants restaurants={restaurants} />}                                           
-            </Col>
+                    <Restaurants restaurants={restaurants} />}                        
+            </Container>
         )
     }
 }

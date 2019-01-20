@@ -54,11 +54,11 @@ function getImage() {
 }
 
     return (
-        <Card style={{backgroundColor: 'grey'}} key={restaurant.id}>
+        <Card style={{backgroundColor: 'grey', margin: '.5rem' }} key={restaurant.id}>
             <CardImg top width="50%" src={getImage()} alt="Card image cap" />
             <CardBody>
-                <CardTitle><h4>{restaurant.name.split('|')[0]}</h4></CardTitle>
-                <CardSubtitle>Address: {restaurant.location.address}</CardSubtitle>
+                <CardTitle><h5>{restaurant.name.split('|')[0]}</h5></CardTitle>
+                <CardSubtitle>{restaurant.location.address}, {restaurant.location.city}</CardSubtitle>
                 <CardText>Category: {
                     restaurant.categories.map(cat => cat.name)[0] === "Building" ? "Restaurant" : restaurant.categories.map(cat => cat.name)[0]}
                     </CardText>

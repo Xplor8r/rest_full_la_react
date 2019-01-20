@@ -1,14 +1,14 @@
 import React from 'react';
 import Restaurant from '../components/restaurant';
-import { CardGroup, Row } from 'reactstrap';
+import { CardColumns, Row } from 'reactstrap';
 const Restaurants = ({ restaurants }) => {
   return (
-    <Row>
+    <Row className="justify-content-sm-center">
+    <CardColumns>
       {restaurants.map((restaurant) => (
-        <CardGroup key={restaurant.id} className="col-md-4 float-left" sm="12" md={{ size: 6, offset: 3 }} style={{height: '500px', align: 'center' }}>
           <Restaurant key={restaurant.id} restaurant={restaurant} />
-        </CardGroup>
       ))}
+    </CardColumns>
     </Row>
   )
 }

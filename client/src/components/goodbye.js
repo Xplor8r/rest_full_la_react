@@ -1,14 +1,14 @@
 import React from 'react';
-import { Button, Col } from 'reactstrap';
+import { Button } from 'reactstrap';
 import  { Link } from 'react-router-dom'
 
 
 const GoodBye = () => {
     return (
-        <Col>
-            <p>Try searching for a restaurant at <a href="https://foursquare.com/" >Foursquare</a></p>
-            <Link to="/hungry"><Button>Please Come Back!</Button></Link>
-        </Col>
+        <div>
+            <Link to="/hungry"><Button size="lg" color="danger">Please Come Back!</Button></Link>
+            <h4>Or try searching for a restaurant at <a href="https://foursquare.com/" >Foursquare</a></h4>
+        </div>
 
     )
 }

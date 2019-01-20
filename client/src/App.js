@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Media, Row, Col } from 'reactstrap';
+import { Media, Row, Container } from 'reactstrap';
 import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import { fetchRestaurantData } from './actions/restaurants'
@@ -22,16 +22,17 @@ class App extends Component {
     const { dataFetch } = this.props
     return (
       <Router>
-        <div className="App">
-          <div className="App-header">
-                <Media style={{height: 200}} src={header} alt="rest full L A" />
-                <h3 className="title">The app that helps the restless and empty in LA to rest and be full in LA!</h3>
-          </div>
-            <div className=" App-info">
+        <div className="wrapper">
+          <header className="header">
+          <Container>
+            <p><Media src={header} alt="Rest Full LA" /></p>
+            <h3>The app that helps the restless and empty in LA to rest and be full in LA!</h3>
+          </Container>
+          </header>
+          <Container className="content">
+            <Row className="justify-content-sm-center"> 
               {dataFetch ?
-                <Row>
-                  <Col><Media src={logo} className="App-logo" alt="logo" /></Col>
-                </Row>:
+                 <Media src={logo} className="App-logo" alt="logo" />:
                 <Switch>
                   <Route exact path="/" component={Welcome}/>
                   <Route exact path="/hungry" component={Hungry}/>
@@ -39,8 +40,9 @@ class App extends Component {
                   <Route exact path="/restaurants" component={RestaurantsContainer}/>
                   <Route exact path="/goodbye" component={GoodBye} />
                 </Switch>}
-            </div>
-     </div>
+                </Row>
+          </Container>
+        </div>
       </Router>
     );
   }
