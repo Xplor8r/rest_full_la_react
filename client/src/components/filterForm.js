@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, ButtonGroup, Button } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
 import { addCategoryFilter, removeCategoryFilter, addDeliveryFilter, removeDeliveryFilter } from '../actions/filters';
 import { connect } from 'react-redux';
 

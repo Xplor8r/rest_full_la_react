@@ -13,9 +13,6 @@ const getRestaurants = (restaurants, filter) => {
     //has delivery and matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === true) {
         let filteredByCategoryRestaurants = restaurants.filter((restaurant) => restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter[0]);
-        // restaurants.filter((restaurant) =>
-        // restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter);
-        console.log(filteredByCategoryRestaurants)
         return filteredByCategoryRestaurants.filter((restaurant) => restaurant.delivery);
     //matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === false) {
