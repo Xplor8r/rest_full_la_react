@@ -1,5 +1,5 @@
 import React from 'react';
-import ModalMap from './modal'
+import ModalMap from './map'
 import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle } from 'reactstrap';
 import american from "../images/american.jpeg"

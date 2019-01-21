@@ -49,7 +49,7 @@ export const addNewRestaurant = (input) => {
         })
     }  
 }
-const getRestaurantData = newRestaurant => {
+const addRestaurant = newRestaurant => {
     return {
         type: 'ADD_RESTAURANT',
         payload: [newRestaurant]

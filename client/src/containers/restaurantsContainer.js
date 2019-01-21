@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
 import { Filter } from '../components/filterForm';
 import NoDelivery from '../components/noDelivery';
+import ModalForm from '../components/newRestaurantForm';
 
 const getRestaurants = (restaurants, filter) => {
    //has delivery
@@ -31,7 +32,8 @@ export class RestaurantsContainer extends Component {
                     <Col className="clearfix" style={{padding: '1rem'}}>
                         <Filter />
                         <Link to="/pick"><Button size="lg" color="danger">Get a Random Pick</Button></Link>{' '}
-                        <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
+                        <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>{' '}
+                        <ModalForm />
                     </Col>
                 </Row> 
                 {restaurants.length === 0? 
