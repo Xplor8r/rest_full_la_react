@@ -11,14 +11,13 @@ class ModalForm extends Component {
         modal: false,
         name: '',
         address: '',
-        city: '',
+        city: 'Los Angeles',
         category: '',
         delivery: false,
         delivery_url: '',
         latitude: null,
         longitude: null
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -27,11 +26,8 @@ class ModalForm extends Component {
     }
 
     handleOnChange(event){
-        const input = event.target.name
-        const state = this.state
-        state[input] = event.target.value
-        this.setState(state)
-
+        console.log(event.target.name)
+        console.log(event.target.value)
     }
 
     handleOnSubmit(event){
@@ -41,14 +37,13 @@ class ModalForm extends Component {
             modal: false,
             name: '',
             address: '',
-            city: '',
+            city: 'Los Angeles',
             category: '',
             delivery: false,
             delivery_url: '',
             latitude: null,
             longitude: null
         });
-        console.log(this.state)
         this.props.fetchRestaurantData()
     }
 
@@ -63,7 +58,7 @@ class ModalForm extends Component {
   render() {
     return (
       <div>
-          <Button color="danger" onClick={this.toggle}>Add New Restaurant</Button>
+          <Button color="danger" size="lg" onClick={this.toggle} style={{ marginRight: '.5rem' }}>Add New Restaurant</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
             <ModalBody className="bg-secondary" >
               <div>
@@ -71,8 +66,8 @@ class ModalForm extends Component {
                 <Form onSubmit={(event) => this.handleOnSubmit(event)}>
                     <FormGroup>
                         <Label for="name">LA Restaurant Name</Label>
-                        <Input type="text" id="name" placeholder="Name"
-                        name={this.state.name} onChange={(event) => this.handleOnChange(event)} />
+                        <Input type="text" id="name" name="name"placeholder="Name"
+                        restaurantName={this.state.name} onChange={(event) => this.handleOnChange(event)} />
                     </FormGroup>
                     <Row form>
                         <Col md={6}>
