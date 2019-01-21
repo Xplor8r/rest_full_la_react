@@ -13,11 +13,11 @@ const getRestaurants = (restaurants, filter) => {
         return restaurants.filter((restaurant) => restaurant.delivery);
     //has delivery and matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === true) {
-        let filteredByCategoryRestaurants = restaurants.filter((restaurant) => restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter[0]);
+        let filteredByCategoryRestaurants = restaurants.filter((restaurant) => restaurant.category === filter.categoryFilter[0]);
         return filteredByCategoryRestaurants.filter((restaurant) => restaurant.delivery);
     //matches category
     } else if (filter.categoryFilter.length !== 0 && filter.deliveryFilter === false) {
-        return restaurants.filter((restaurant) => restaurant.categories.map(cat => cat.name)[0] === filter.categoryFilter[0]);
+        return restaurants.filter((restaurant) => restaurant.category === filter.categoryFilter[0]);
     } else if (filter.categoryFilter.length === 0 && filter.deliveryFilter === false) {
         return restaurants;
     } else { return restaurants }

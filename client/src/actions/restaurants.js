@@ -1,9 +1,9 @@
 import { endDataFetch } from './dataFetch'
 import { getPick } from './pick'
-// import { beginDataFetch } from './dataFetch'
+
 export const fetchRestaurantData = () => {
     return dispatch => {
-        fetch(`RailsApi/restaurants`)
+        fetch('RailsApi/restaurants', { method: 'GET' })
         .then(response => response.json())
         .then(restaurantData => {
             dispatch(getRestaurantData(restaurantData))
@@ -34,7 +34,7 @@ export const addNewRestaurant = (input) => {
                 longitude: input.longitude
             }
         }
-        fetch('RailsApi/create',
+        fetch('RailsApi/restaurants',
         {
             method: 'POST',
             mode: 'cors',
