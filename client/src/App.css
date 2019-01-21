@@ -24,6 +24,16 @@
   margin: auto;
 }
 
+h3 {
+  font-weight: bold;
+  text-shadow: 2px 2px #050505;
+}
+
+h4 {
+  font-weight: bold;
+  text-shadow: 2px 2px #050505;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 10s linear;
   height: 30vmin;
