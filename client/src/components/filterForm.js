@@ -10,7 +10,7 @@ class FilterForm extends Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            dropDownValue: 'Select Category',
+            dropDownValue: 'Select a Category',
             dropdownOpen: false,
             cSelected: []
         };
@@ -60,7 +60,7 @@ class FilterForm extends Component {
 
         return (
             <NavItem>
-                <Button style={{ marginRight: '.5rem' }} className="float-left" size="lg" color="danger" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Has Delivery</Button>
+                <Button style={{ marginRight: '.5rem' }} className="float-left" size="lg" color="danger" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Delivery</Button>
                 <Dropdown style={{ marginRight: '.5rem' }} className="float-right" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                     <DropdownToggle size="lg" color="danger" caret>{this.state.dropDownValue}</DropdownToggle>
                     <DropdownMenu right>

@@ -58,7 +58,7 @@ class ModalForm extends Component {
   render() {
     return (
       <div>
-          <Button color="danger" size="lg" onClick={this.toggle} style={{ marginRight: '.5rem' }}>Add New Restaurant</Button>
+          <Button color="danger" size="lg" onClick={this.toggle} style={{ marginRight: '.5rem' }}>Add a New Restaurant</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
             <ModalBody className="bg-secondary" >
               <div>

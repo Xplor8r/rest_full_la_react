@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
+import { Button, Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, NavbarBrand } from 'reactstrap';
 import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
@@ -52,7 +52,7 @@ export class RestaurantsContainer extends Component {
                         <Link to="/pick"><Button style={{ marginRight: '.5rem' }} size="lg" color="danger" >Get a Random Pick</Button></Link>
                     </NavItem>
                     <NavItem>
-                        <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
+                        <Link to="/hungry"><Button size="lg" color="danger">Go Back</Button></Link>
                     </NavItem>
                     </Nav>
                     </Collapse>
