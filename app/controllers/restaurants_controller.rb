@@ -6,7 +6,6 @@ class RestaurantsController < ApplicationController
     Restaurant.get_foursquare_data
     restaurants = Restaurant.order("created_at DESC")
     render json: restaurants
-    binding.pry
   end
 
   def create
@@ -26,6 +25,7 @@ class RestaurantsController < ApplicationController
       :foursquare_id,
       :address,
       :city,
+      :category,
       :delivery,
       :delivery_url,
       :latitude,

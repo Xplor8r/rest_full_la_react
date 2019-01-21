@@ -39,8 +39,8 @@ class Restaurant < ApplicationRecord
         self.address = restaurant["location"]["address"]
         self.city = restaurant["location"]["city"]
         self.category = restaurant["categories"][0]["name"]
-        restaurant.include?("delivery") ? delivery = true : delivery = false
-        restaurant.include?("delivery") ? self.delivery_url = restaurant["delivery"]["url"] : self.delivery_url = nil
+        restaurant.include?("delivery") ? self.delivery = true : self.delivery = false
+        restaurant.include?("delivery") ? self.delivery_url = restaurant["delivery"]["url"]: self.delivery_url = nil
         self.latitude = restaurant["location"]["lat"]
         self.longitude = restaurant["location"]["lng"]
     end

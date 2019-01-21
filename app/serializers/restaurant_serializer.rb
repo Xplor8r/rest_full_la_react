@@ -4,6 +4,7 @@ class RestaurantSerializer < ActiveModel::Serializer
         :foursquare_id,
         :address,
         :city,
+        :category,
         :delivery,
         :delivery_url,
         :latitude,

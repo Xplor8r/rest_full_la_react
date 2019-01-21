@@ -18,7 +18,7 @@ import sushi from "../images/sushi.jpeg"
 const Restaurant = ({restaurant}) => {
 
 function getImage() {
-    let category = restaurant.categories.map(cat => cat.name)[0]
+    let category = restaurant.category
 
     switch (category) {
         case "Chinese Restaurant":
@@ -54,16 +54,16 @@ function getImage() {
 }
 
     return (
-        <Card style={{backgroundColor: 'grey', margin: '.5rem' }} key={restaurant.id}>
+        <Card style={{backgroundColor: 'black', margin: '.5rem' }} key={restaurant.id}>
             <CardImg top width="50%" src={getImage()} alt="Card image cap" />
             <CardBody>
                 <CardTitle><h5>{restaurant.name.split('|')[0]}</h5></CardTitle>
-                <CardSubtitle>{restaurant.location.address}, {restaurant.location.city}</CardSubtitle>
+                <CardSubtitle>{restaurant.address}, {restaurant.city}</CardSubtitle>
                 <CardText>Category: {
-                    restaurant.categories.map(cat => cat.name)[0] === "Building" ? "Restaurant" : restaurant.categories.map(cat => cat.name)[0]}
+                    restaurant.category === "Building" ? "Restaurant" : restaurant.category}
                     </CardText>
                 <CardText>{restaurant.delivery?
-                        <span>Delivery: yes    <a href={restaurant.delivery.url} rel="noopener noreferrer" target="_blank">Order Now</a></span>:
+                        <span>Delivery: yes    <a href={restaurant.delivery_url} rel="noopener noreferrer" target="_blank">Order Now</a></span>:
                         <span>Delivery: no</span>}</CardText>
                 <ModalMap restaurant={restaurant}/>
             </CardBody><br/>
