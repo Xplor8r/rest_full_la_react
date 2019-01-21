@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button, NavItem } from 'reactstrap';
 import { addCategoryFilter, removeCategoryFilter, addDeliveryFilter, removeDeliveryFilter } from '../actions/filters';
 import { connect } from 'react-redux';
 
@@ -59,9 +59,9 @@ class FilterForm extends Component {
         })
 
         return (
-            <div>
-                <Button className="float-left" size="lg" color="danger" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Has Delivery</Button>
-                <Dropdown className="float-right" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <NavItem>
+                <Button style={{ marginRight: '.5rem' }} className="float-left" size="lg" color="danger" onClick={() => this.onCheckboxBtnClick(1)} active={this.state.cSelected.includes(1)}>Has Delivery</Button>
+                <Dropdown style={{ marginRight: '.5rem' }} className="float-right" isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                     <DropdownToggle size="lg" color="danger" caret>{this.state.dropDownValue}</DropdownToggle>
                     <DropdownMenu right>
                         <DropdownItem header>Pick a Category</DropdownItem>
@@ -69,7 +69,7 @@ class FilterForm extends Component {
                         {dropDownItems}                   
                     </DropdownMenu>
                 </Dropdown>
-            </div>
+            </NavItem>
         );
     }
 }
