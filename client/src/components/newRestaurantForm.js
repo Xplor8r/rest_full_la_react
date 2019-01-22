@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Modal, ModalBody, Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { addNewRestaurant, fetchRestaurantData } from '../actions/restaurants'
-import { endDataFetch } from '../actions/dataFetch'
+import { addNewRestaurant } from '../actions/restaurants'
+
 
 class ModalForm extends Component {
   constructor(props) {
@@ -19,6 +19,7 @@ class ModalForm extends Component {
         longitude: null
     };
     this.toggle = this.toggle.bind(this);
+    this.handleChange = this.handleOnChange.bind(this);
   }
 
     toggle() {
@@ -26,12 +27,12 @@ class ModalForm extends Component {
     }
 
     handleOnChange(event){
-        console.log(event.target.name)
-        console.log(event.target.value)
+        this.setState({ [event.target.name]: event.target.value });
     }
 
     handleOnSubmit(event){
         event.preventDefault();
+        this.toggle();
         this.props.addNewRestaurant(this.state);
         this.setState({
             modal: false,
@@ -44,7 +45,6 @@ class ModalForm extends Component {
             latitude: null,
             longitude: null
         });
-        this.props.fetchRestaurantData()
     }
 
     handleDeliveryCheckbox(event) {
@@ -66,38 +66,38 @@ class ModalForm extends Component {
                 <Form onSubmit={(event) => this.handleOnSubmit(event)}>
                     <FormGroup>
                         <Label for="name">LA Restaurant Name</Label>
-                        <Input type="text" id="name" name="name"placeholder="Name"
-                        restaurantName={this.state.name} onChange={(event) => this.handleOnChange(event)} />
+                        <Input type="text" id="name" name="name" placeholder="Name"
+                            onChange={(event) => this.handleOnChange(event)} />
                     </FormGroup>
                     <Row form>
                         <Col md={6}>
                             <FormGroup>
                                 <Label for="address">LA Restaurant Address</Label>
                                 <Input type="text" name="address" id="address" placeholder="Address"
-                                address={this.state.address} onChange={(event) => this.handleOnChange(event)} />
+                                    onChange={(event) => this.handleOnChange(event)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                             <Label for="category">LA Restaurant Category</Label>
                             <Input type="text" name="category" id="category" placeholder="Category"
-                            category={this.state.category} onChange={(event) => this.handleOnChange(event)}/>
+                                onChange={(event) => this.handleOnChange(event)}/>
                             </FormGroup>
                         </Col>
                     </Row>
                     <Row form>
                         <Col md={6}>
                             <FormGroup>
-                                <Label for="latitude">LA Restaurant</Label>
-                                <Input type="text" name="email" id="latitude" placeholder="Latitude"
-                                latitude={this.state.latitude} onChange={(event) => this.handleOnChange(event)} />
+                                <Label for="latitude" className="float-right">LA Restaurant</Label>
+                                <Input type="text" name="latitude" id="latitude" placeholder="Latitude"
+                                    onChange={(event) => this.handleOnChange(event)} />
                             </FormGroup>
                         </Col>
                         <Col md={6}>
                             <FormGroup>
                             <Label for="longitude">Map Cordinates</Label>
                             <Input type="text" name="longitude" id="longitude" placeholder="Longitude"
-                            longitude={this.state.longitude} onChange={(event) => this.handleOnChange(event)}/>
+                                onChange={(event) => this.handleOnChange(event)}/>
                             </FormGroup>
                         </Col>
                     </Row>
@@ -108,7 +108,7 @@ class ModalForm extends Component {
                     <FormGroup>
                         <Label for="delivery_url">Grubhub Website</Label>
                         <Input type="text" name="delivery_url" id="delivery_url" placeholder="Grubhub"
-                        delivery_url={this.state.delivery_url} onChange={(event) => this.handleOnChange(event)}/>
+                            onChange={(event) => this.handleOnChange(event)}/>
                     </FormGroup>
                     <Button type="submit">Add Restaurant</Button>
                 </Form>
@@ -126,12 +126,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addNewRestaurant: () => dispatch(addNewRestaurant()),
-        fetchRestaurantData: () => dispatch(fetchRestaurantData()),
-        endDataFetch: () => dispatch(endDataFetch())
-    }
-}
-  
-export default connect(mapStateToProps, mapDispatchToProps)(ModalForm);
+export default connect(mapStateToProps, { addNewRestaurant })(ModalForm);

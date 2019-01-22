@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, NavbarBrand } from 'reactstrap';
+import { Button, Container, Collapse, Navbar, NavbarToggler, Nav, NavItem } from 'reactstrap';
 import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
