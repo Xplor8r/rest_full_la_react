@@ -65,7 +65,7 @@ function getImage() {
                 <CardText>{restaurant.delivery?
                         <span>Delivery: yes    <a href={restaurant.delivery_url} rel="noopener noreferrer" target="_blank">Order Now</a></span>:
                         <span>Delivery: no</span>}</CardText>
-                <ModalMap restaurant={restaurant}/>
+                {restaurant.longitude? <ModalMap restaurant={restaurant} />: <div></div>}
             </CardBody><br/>
         </Card>
     )
