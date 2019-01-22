@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Media, Row, Container } from 'reactstrap';
 import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
+import showContainer from './containers/showContainer'
 import { fetchRestaurantData } from './actions/restaurants'
 import { endDataFetch } from './actions/dataFetch'
 import Hungry from './components/hungry'
@@ -39,6 +40,7 @@ class App extends Component {
                   <Route exact path="/pick" component={PickContainer}/>
                   <Route exact path="/restaurants" component={RestaurantsContainer}/>
                   <Route exact path="/goodbye" component={GoodBye} />
+                  <Route exact path="/show" component={showContainer}/>
                 </Switch>}
                 </Row>
           </Container>
@@ -47,7 +49,6 @@ class App extends Component {
     );
   }
 }
-
 
 const mapStateToProps = (state) => {
   return {

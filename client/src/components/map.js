@@ -22,7 +22,7 @@ class ModalMap extends React.Component {
       <div>
           <Button color="primary" onClick={this.toggle}>View Map</Button>
           <Modal isOpen={this.state.modal} toggle={this.toggle}>
-            <ModalBody className="bg-success" >
+            <ModalBody className="bg-secondary" >
               <div>
                 <Button onClick={this.toggle} close/>
                 <h5>{this.props.restaurant.name}</h5>
