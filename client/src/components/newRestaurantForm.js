@@ -94,7 +94,7 @@ class ModalForm extends Component {
                                 </Col>
                                 <Col md={6}>
                                     <FormGroup>
-                                    <Label for="longitude">Map Cordinates</Label>
+                                    <Label for="longitude">Map Coordinates</Label>
                                     <Input type="text" name="longitude" id="longitude" placeholder="Longitude"
                                         onChange={(event) => this.handleOnChange(event)}/>
                                     </FormGroup>
