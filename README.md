@@ -1,56 +1,17 @@
-Project Title
-One Paragraph of project description goes here
+RestFull LA
 
-Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Are you Hungry? Are you in LA? Need help finding a restaurant? You're in the right place! It's app that helps the restless and empty in LA to rest and be full in LA!
 
-Prerequisites
-What things you need to install the software and how to install them
+RestFull LA is a project that I built with React and Redux in the Front-end and with Ruby on Rails in the Back-end. The application was created using 'gem install rails' and 'Create-React-App' in the client folder.
 
-Give examples
-Installing
-A step by step series of examples that tell you how to get a development env running
+Install Directions
+To see the application in browser, fork and clone. Run bundle install and then Run db:migrate in the terminal. Next cd into the client folder and run npm install in the terminal. Last run rake start to run the app in the browser.
 
-Say what the step will be
+Contributions
+Bug reports and pull requests are welcome at https://github.com/Xplor8r/rest_full_la_react.
 
-Give the example
-And repeat
+Author
+Michael Pieschel
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
-
-Running the tests
-Explain how to run the automated tests for this system
-
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
-
-Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
-
-Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
-This project is licensed under the MIT License - see the LICENSE.md file for details
-
-Acknowledgments
-Hat tip to anyone whose code was used
-Inspiration
-etc
+Licence
+This project has been licensed under the MIT open source license.
