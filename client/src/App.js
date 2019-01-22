@@ -27,7 +27,7 @@ class App extends Component {
           <header className="header">
           <Container>
             <p><Media src={header} alt="Rest Full LA" /></p>
-            <h3>The app that helps the restless and empty in LA to rest and be full in LA!</h3>
+            <h3>The app that helps the restless and empty in LA to REST and be FULL in LA!</h3>
           </Container>
           </header>
           <Container className="content">

@@ -10,7 +10,7 @@ class FilterForm extends Component {
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            dropDownValue: 'Select a Category',
+            dropDownValue: 'Select Category',
             dropdownOpen: false,
             cSelected: []
         };
