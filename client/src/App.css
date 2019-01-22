@@ -1,5 +1,5 @@
 .wrapper {
-  background: url(./images/restaurant.jpg) no-repeat center center fixed; 
+  background: url(./images/emptydiner.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -62,6 +62,3 @@ h4 {
     filter: brightness(100%);
   }
 }
-
-
-
