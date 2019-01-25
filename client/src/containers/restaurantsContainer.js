@@ -27,41 +27,39 @@ const getRestaurants = (restaurants, filter) => {
 export class RestaurantsContainer extends Component {
     constructor(props) {
         super(props);
-    
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false
+            isOpen: false
         };
-      }
-      toggle() {
+    }
+
+    toggle() {
         this.setState({
-          isOpen: !this.state.isOpen
+            isOpen: !this.state.isOpen
         });
-      }
+    }
+
     render() {
         let restaurants = getRestaurants(this.props.restaurantData, this.props.filter)
         return (
             <Container>
                 <Navbar light expand="md" className="justify-content-sm-center">
-                <NavbarBrand><Media src={logo} className="App-logo" alt="logo" style={{ height: 50}}/></NavbarBrand>
-                <NavbarToggler onClick={this.toggle} />
-                <Collapse isOpen={this.state.isOpen} navbar>
-                    <Nav className="ml-auto" navbar>
-                    <Filter />
-                    <ModalForm />
+                    <NavbarBrand><Media src={logo} className="App-logo" alt="logo" style={{ height: 50}}/></NavbarBrand>
+                    <NavbarToggler onClick={this.toggle} />
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className="ml-auto" navbar>
+                            <Filter />
+                            <ModalForm />
 
-                    <NavItem>
-                        <Link to={`/pick/${this.props.pick.restaurant.id}`}><Button size="lg" color="danger" style={{ marginRight: '.5rem' }}>Get a Random Pick</Button></Link>
-
-                        {/* <Link to="/pick"><Button style={{ marginRight: '.5rem' }} size="lg" color="danger" >Get Random Pick</Button></Link> */}
-                    </NavItem>
-                    <NavItem>
-                        <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
-                    </NavItem>
-                    </Nav>
-                    </Collapse>
-                    
-                    </Navbar>
+                            <NavItem>
+                                <Link to={`/pick/${this.props.pick.restaurant.id}`}><Button size="lg" color="danger" style={{ marginRight: '.5rem' }}>Get a Random Pick</Button></Link>
+                            </NavItem>
+                            <NavItem>
+                                <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
+                            </NavItem>
+                        </Nav>
+                    </Collapse> 
+                </Navbar>
                 {restaurants.length === 0? 
                     <NoDelivery />:
                     <Restaurants restaurants={restaurants} />}                        

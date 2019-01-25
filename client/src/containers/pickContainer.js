@@ -5,9 +5,7 @@ import Restaurant from '../components/restaurant';
 import { getPick } from '../actions/pick';
 import { connect } from 'react-redux'
 
-
 class PickContainer extends Component {
-
     handleNewPick() {
         let restaurant = this.props.restaurantData[Math.floor(Math.random()*this.props.restaurantData.length)]
         this.props.dispatch(getPick(restaurant))
@@ -32,6 +30,7 @@ class PickContainer extends Component {
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         restaurantData: state.restaurantData,

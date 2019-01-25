@@ -3,7 +3,6 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Button, NavItem }
 import { addCategoryFilter, removeCategoryFilter, addDeliveryFilter, removeDeliveryFilter } from '../actions/filters';
 import { connect } from 'react-redux';
 
-
 class FilterForm extends Component {
     constructor(props) {
         super(props);
@@ -73,6 +72,7 @@ class FilterForm extends Component {
         );
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         restaurantData: state.restaurantData,
@@ -81,4 +81,3 @@ const mapStateToProps = (state) => {
 }
 
 export const Filter = connect(mapStateToProps)(FilterForm)
-

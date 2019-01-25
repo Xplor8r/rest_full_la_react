@@ -2,14 +2,12 @@ import React from "react";
 import { connect } from 'react-redux';
 import { Modal, ModalBody, Button } from "reactstrap";
 
-
 class ModalMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       modal: false
     };
-
     this.toggle = this.toggle.bind(this);
   }
 
@@ -39,7 +37,5 @@ class ModalMap extends React.Component {
     );
   }
 }
-
-
 
 export default connect()(ModalMap);

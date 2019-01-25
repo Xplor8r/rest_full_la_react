@@ -34,21 +34,24 @@ export const addNewRestaurant = (input) => {
                 longitude: input.longitude
             }
         }
+
         fetch('RailsApi/restaurants',
-        {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(restaurant)
-        })
+            {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(restaurant)
+            }
+        )
         .then(response => response.json())
         .then(newRestaurant =>{ 
             dispatch(addRestaurant(newRestaurant))
         })
     }  
 }
+
 const addRestaurant = newRestaurant => {
     return {
         type: 'ADD_RESTAURANT',

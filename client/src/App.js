@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import  { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { connect } from 'react-redux'
-import { Media, Row, Container } from 'reactstrap';
+import { fetchRestaurantData } from './actions/restaurants'
+
 import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import showContainer from './containers/showContainer'
-import { fetchRestaurantData } from './actions/restaurants'
-// import { endDataFetch } from './actions/dataFetch'
+
 import Hungry from './components/hungry'
 import Welcome from './components/welcome'
 import GoodBye from './components/goodbye'
+
+import { Media, Row, Container } from 'reactstrap';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from './images/spinning_plate.png'
@@ -60,7 +62,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRestaurantData: () => dispatch(fetchRestaurantData()),
-    // endDataFetch: () => dispatch(endDataFetch())
   }
 }
 

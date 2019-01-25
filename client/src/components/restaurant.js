@@ -16,42 +16,40 @@ import steak from "../images/steak.jpeg"
 import sushi from "../images/sushi.jpeg"
 
 const Restaurant = ({restaurant}) => {
-
-function getImage() {
-    let category = restaurant.category
-
-    switch (category) {
-        case "Chinese Restaurant":
-            return chinese;
-        case "Korean Restaurant":
-        case "Thai Restaurant":
-            return asian;
-        case "Deli / Bodega":
-            return deli;
-        case "Peruvian Restaurant":
-        case "Latin American Restaurant":
-        case "Mexican Restaurant":
-            return mexican;
-        case "Italian Restaurant":
-            return italian;
-        case "Seafood Restaurant":
-            return seafood;
-        case "Sushi Restaurant":
-            return sushi;
-        case "French Restaurant":
-            return french;
-        case "American Restaurant":
-        case "Diner":
-        case "New American Restaurant":
-            return american;
-        case "Steakhouse":
-            return steak;
-        case "Salad Place":
-            return salad;
-        default:
-            return misc;
+    function getImage() {
+        let category = restaurant.category
+        switch (category) {
+            case "Chinese Restaurant":
+                return chinese;
+            case "Korean Restaurant":
+            case "Thai Restaurant":
+                return asian;
+            case "Deli / Bodega":
+                return deli;
+            case "Peruvian Restaurant":
+            case "Latin American Restaurant":
+            case "Mexican Restaurant":
+                return mexican;
+            case "Italian Restaurant":
+                return italian;
+            case "Seafood Restaurant":
+                return seafood;
+            case "Sushi Restaurant":
+                return sushi;
+            case "French Restaurant":
+                return french;
+            case "American Restaurant":
+            case "Diner":
+            case "New American Restaurant":
+                return american;
+            case "Steakhouse":
+                return steak;
+            case "Salad Place":
+                return salad;
+            default:
+                return misc;
+        }
     }
-}
 
     return (
         <Card style={{backgroundColor: 'black', margin: '.5rem' }} key={restaurant.id}>

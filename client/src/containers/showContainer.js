@@ -4,13 +4,12 @@ import  { Link } from 'react-router-dom'
 import Restaurant from '../components/restaurant';
 import { connect } from 'react-redux'
 import { fetchRestaurantData } from '../actions/restaurants'
-import { endDataFetch } from '../actions/dataFetch'
 
 class showContainer extends Component {
-
     componentDidMount() {
         this.props.fetchRestaurantData();
     }
+
     render() {
         const restaurant = this.props.location.state.restaurant
         return (
@@ -29,16 +28,18 @@ class showContainer extends Component {
         )
     }
 }
+
 const mapStateToProps = (state) => {
-  return {
-    dataFetch: state.dataFetch,
-    restaurantData: state.restaurantData,
-  }
+    return {
+        dataFetch: state.dataFetch,
+        restaurantData: state.restaurantData,
+    }
 }
+
 const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchRestaurantData: () => dispatch(fetchRestaurantData()),
-    endDataFetch: () => dispatch(endDataFetch())
-  }
+    return {
+        fetchRestaurantData: () => dispatch(fetchRestaurantData()),
+    }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(showContainer)
