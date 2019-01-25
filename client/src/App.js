@@ -6,7 +6,7 @@ import PickContainer from './containers/pickContainer'
 import { RestaurantsContainer } from './containers/restaurantsContainer'
 import showContainer from './containers/showContainer'
 import { fetchRestaurantData } from './actions/restaurants'
-import { endDataFetch } from './actions/dataFetch'
+// import { endDataFetch } from './actions/dataFetch'
 import Hungry from './components/hungry'
 import Welcome from './components/welcome'
 import GoodBye from './components/goodbye'
@@ -19,30 +19,31 @@ class App extends Component {
   componentWillMount() {
     this.props.fetchRestaurantData();
   }
+
   render() {
     const { dataFetch } = this.props
     return (
       <Router>
         <div className="wrapper">
           <header className="header">
-          <Container>
-            <p><Media src={header} alt="Rest Full LA" /></p>
-            <h3>The app that helps the restless and empty in LA to REST and be FULL in LA!</h3>
-          </Container>
+            <Container>
+              <p><Media src={header} alt="Rest Full LA" /></p>
+              <h3>The app that helps the restless and empty in LA to REST and be FULL in LA!</h3>
+            </Container>
           </header>
           <Container className="content">
             <Row className="justify-content-sm-center"> 
               {dataFetch ?
-                 <Media src={logo} className="App-logo" alt="logo" />:
+                <Media src={logo} className="App-logo" alt="logo" />:
                 <Switch>
                   <Route exact path="/" component={Welcome}/>
                   <Route exact path="/hungry" component={Hungry}/>
-                  <Route exact path="/pick" component={PickContainer}/>
+                  <Route exact path="/pick/:id" component={PickContainer}/>
                   <Route exact path="/restaurants" component={RestaurantsContainer}/>
                   <Route exact path="/goodbye" component={GoodBye} />
                   <Route exact path="/show" component={showContainer}/>
                 </Switch>}
-                </Row>
+            </Row>
           </Container>
         </div>
       </Router>
@@ -59,7 +60,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchRestaurantData: () => dispatch(fetchRestaurantData()),
-    endDataFetch: () => dispatch(endDataFetch())
+    // endDataFetch: () => dispatch(endDataFetch())
   }
 }
 

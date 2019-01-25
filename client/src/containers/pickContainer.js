@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Container, Button, Col } from 'reactstrap';
-import  { Link } from 'react-router-dom'
+import  { withRouter, Link } from 'react-router-dom'
 import Restaurant from '../components/restaurant';
 import { getPick } from '../actions/pick';
 import { connect } from 'react-redux'
@@ -11,6 +11,7 @@ class PickContainer extends Component {
     handleNewPick() {
         let restaurant = this.props.restaurantData[Math.floor(Math.random()*this.props.restaurantData.length)]
         this.props.dispatch(getPick(restaurant))
+        this.props.history.push(`${ restaurant.id }`)
     }
 
     render() {
@@ -38,4 +39,4 @@ const mapStateToProps = (state) => {
     }
 }
   
-export default connect(mapStateToProps)(PickContainer)
+export default withRouter(connect(mapStateToProps)(PickContainer))

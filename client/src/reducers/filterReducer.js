@@ -4,13 +4,13 @@ const filter = (state = {categoryFilter: [], deliveryFilter: false}, action) => 
         return {...state, categoryFilter: [...state.categoryFilter, action.category], deliveryFilter: state.deliveryFilter}
 
         case 'REMOVE_CATEGORY_FILTER':
-        return { categoryFilter: [], deliveryFilter: state.deliveryFilter}
+        return {...state, categoryFilter: [], deliveryFilter: state.deliveryFilter}
 
       case 'ADD_DELIVERY_FILTER':
-        return { categoryFilter: [...state.categoryFilter], deliveryFilter: true}
+        return {...state, categoryFilter: [...state.categoryFilter], deliveryFilter: true}
   
       case 'REMOVE_DELIVERY_FILTER':
-        return { categoryFilter: [...state.categoryFilter], deliveryFilter: false}
+        return {...state, categoryFilter: [...state.categoryFilter], deliveryFilter: false}
   
       default:
         return state

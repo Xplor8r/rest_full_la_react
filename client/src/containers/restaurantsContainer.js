@@ -51,7 +51,9 @@ export class RestaurantsContainer extends Component {
                     <ModalForm />
 
                     <NavItem>
-                        <Link to="/pick"><Button style={{ marginRight: '.5rem' }} size="lg" color="danger" >Get Random Pick</Button></Link>
+                        <Link to={`/pick/${this.props.pick.restaurant.id}`}><Button size="lg" color="danger" style={{ marginRight: '.5rem' }}>Get a Random Pick</Button></Link>
+
+                        {/* <Link to="/pick"><Button style={{ marginRight: '.5rem' }} size="lg" color="danger" >Get Random Pick</Button></Link> */}
                     </NavItem>
                     <NavItem>
                         <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
@@ -71,7 +73,8 @@ export class RestaurantsContainer extends Component {
 const mapStateToProps = (state) => {
     return {
         restaurantData: state.restaurantData,
-        filter: state.filter
+        filter: state.filter,
+        pick: state.pick
     }
   }
   
