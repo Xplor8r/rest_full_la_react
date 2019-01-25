@@ -15,7 +15,9 @@ class showContainer extends Component {
         return (
             <Container>
                 <div style={{padding: '1rem'}}>
-                    <Link to="/pick"><Button style={{ marginRight: '.5rem' }} size="lg" color="danger" >Get a Random Pick</Button></Link>{' '}
+                    <Link to={`/pick/${this.props.pick.restaurant.id}`}><Button size="lg" color="danger" style={{ marginRight: '.5rem' }}>Get a Random Pick</Button></Link>{' '}
+
+                    {/* <Link to="/pick"><Button style={{ marginRight: '.5rem' }} size="lg" color="danger" >Get a Random Pick</Button></Link>{' '} */}
                     <Link to="/restaurants"><Button size="lg" color="danger">View a List of Restaunts</Button></Link>{' '}
                     <Link to="/hungry"><Button size="lg" color="danger">Back</Button></Link>
                 </div>
@@ -33,6 +35,7 @@ const mapStateToProps = (state) => {
     return {
         dataFetch: state.dataFetch,
         restaurantData: state.restaurantData,
+        pick: state.pick
     }
 }
 

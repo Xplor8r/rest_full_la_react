@@ -17,7 +17,7 @@ class ModalForm extends Component {
             delivery_url: '',
             latitude: null,
             longitude: null,
-            redirectToPick: false
+            redirectToShow: false
         };
         this.toggle = this.toggle.bind(this);
         this.handleChange = this.handleOnChange.bind(this);
@@ -35,7 +35,7 @@ class ModalForm extends Component {
         event.preventDefault();
         this.toggle();
         this.props.addNewRestaurant(this.state);
-        this.setState({redirectToPick: true})
+        this.setState({redirectToShow: true})
     }
 
     handleDeliveryCheckbox(event) {
@@ -47,7 +47,7 @@ class ModalForm extends Component {
     }
 
     render() {
-        if (this.state.redirectToPick) {
+        if (this.state.redirectToShow) {
             return (
                 <Redirect to={{
                     pathname: "/show",
