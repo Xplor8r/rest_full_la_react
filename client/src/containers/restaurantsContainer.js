@@ -3,7 +3,7 @@ import { Button, Container, Collapse, Navbar, NavbarToggler, Nav, NavItem, Navba
 import  { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Restaurants from '../components/restaurants';
-import { Filter } from '../components/filterForm';
+import Filter from '../components/filterForm';
 import NoDelivery from '../components/noDelivery';
 import ModalForm from '../components/newRestaurantForm';
 import logo from '../images/spinning_plate.png'

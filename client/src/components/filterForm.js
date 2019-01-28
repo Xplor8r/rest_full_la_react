@@ -80,4 +80,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export const Filter = connect(mapStateToProps)(FilterForm)
+export default connect(mapStateToProps)(FilterForm)
