@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { fetchRestaurantData } from './actions/restaurants'
 
 import PickContainer from './containers/pickContainer'
-import { RestaurantsContainer } from './containers/restaurantsContainer'
+import RestaurantsContainer from './containers/restaurantsContainer'
 import showContainer from './containers/showContainer'
 
 import Hungry from './components/hungry'

@@ -24,7 +24,7 @@ const getRestaurants = (restaurants, filter) => {
     } else { return restaurants }
 }
    
-export class RestaurantsContainer extends Component {
+class RestaurantsContainer extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
@@ -76,4 +76,4 @@ const mapStateToProps = (state) => {
     }
   }
   
-export default RestaurantsContainer = connect(mapStateToProps)(RestaurantsContainer)
+export default connect(mapStateToProps)(RestaurantsContainer)
