@@ -46,8 +46,8 @@ class RestaurantsContainer extends Component {
 
     render() {
         let restaurants = getRestaurants(this.props.restaurantData, this.props.filter)
-        if (sort) {
-            restaurants = restaurants.sort()
+        if (this.state.sort) {
+            restaurants = restaurants.sort((a, b) => (a.name.localeCompare(b.name)))
         }
         return (
             <Container>
