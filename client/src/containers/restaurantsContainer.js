@@ -27,9 +27,10 @@ const getRestaurants = (restaurants, filter) => {
 class RestaurantsContainer extends Component {
     constructor(props) {
         super(props);
-        this.toggle = this.toggle.bind(this);
+        this.toggle = this.toggle.bind(this);     
         this.state = {
-            isOpen: false
+            isOpen: false,
+            sort: false
         };
     }
 
@@ -39,8 +40,15 @@ class RestaurantsContainer extends Component {
         });
     }
 
+    handleOnClick() {
+        this.setState({sort: true})
+    }
+
     render() {
         let restaurants = getRestaurants(this.props.restaurantData, this.props.filter)
+        if (sort) {
+            restaurants = restaurants.sort()
+        }
         return (
             <Container>
                 <Navbar light expand="md" className="justify-content-sm-center">
@@ -48,6 +56,7 @@ class RestaurantsContainer extends Component {
                     <NavbarToggler onClick={this.toggle} />
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
+                            <Button onClick={() => this.handleOnClick()}>sort</Button>
                             <Filter />
                             <ModalForm />
 
