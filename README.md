@@ -6,7 +6,7 @@ RestFull LA is a project that I built with React and Redux in the Front-end and 
 
 Install Directions
 
-To see the application in browser, fork and clone. Run bundle install and then Run db:migrate in the terminal. Next cd into the client folder and run npm install in the terminal. Last run rake start to run the app in the browser.
+To see the application in browser, fork and clone. Run bundle install and then Run db:migrate in the terminal. Create a .env file for a client id and client secret which can be obtained by signing up and following instructions at https://developer.foursquare.com/. Then cd into the client folder and run npm install in the terminal. Create a .env file in the client folder for your google API key which can be attained by visiting https://cloud.google.com/ and creating an account. Last run rake start to run the app in the browser.
 
 Contributions
 
