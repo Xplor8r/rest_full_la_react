@@ -1,6 +1,6 @@
 # RestFull LA
 
-Are you Hungry? Are you in LA? Need help finding a restaurant? You're in the right place! It's app that helps the restless and empty in LA to rest and be full in LA!
+Are you Hungry? Are you in LA? Need help finding a restaurant? You're in the right place! It's the app that helps the restless and empty in LA to rest and be full in LA!
 
 RestFull LA is a project that I built with React and Redux in the Front-end and with Ruby on Rails in the Back-end. The application was created using 'gem install rails' and 'Create-React-App' in the client folder.
 
