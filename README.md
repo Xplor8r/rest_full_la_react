@@ -1,8 +1,7 @@
 # RestFull LA
-
-Are you Hungry? Are you in LA? Need help finding a restaurant? You're in the right place! It's the app that helps the restless and empty in LA to rest and be full in LA!
-
-RestFull LA is a project that I built with React and Redux in the Front-end and with Ruby on Rails in the Back-end. The application was created using 'gem install rails' and 'Create-React-App' in the client folder.
++ Collected and persisted data from foursquare.com via Ruby on Rails and the Faraday gem
++ Constructed front-end user interface using React and Redux
++ Created a layout and design with reactstrap
 
 # Video Demo
 [![RestFull LA](https://img.youtube.com/vi/V5SR3cZ0TNc/hqdefault.jpg)](https://youtu.be/V5SR3cZ0TNc)
